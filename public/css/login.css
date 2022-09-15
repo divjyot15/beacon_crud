@@ -1,0 +1,44 @@
+#box {
+    height: 90vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+    padding: 50px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+#login input {
+    width: 100%;
+}
+
+#log {
+    text-align: center;
+    margin-top: 25px;
+    /* border: 2px solid rgb(26, 165, 252);
+    background-color: rgb(26, 165, 252); */
+
+    width: 100%;
+    border-radius: 5px;
+}
+
+#sign {
+    margin-top: 20px;
+}
+
+#signbutton {
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 15px;
+}
+
+#logo {
+    height: 90px;
+    width: 278px;
+    padding-bottom: 10px;
+}
