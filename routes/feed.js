@@ -74,11 +74,11 @@ router.get('/users', (req, res) => {
     })
 })
 
-router.get('/view', (req, res) => {
+router.get('/view',async (req, res) => {
     // document.find((err,response) =>{
     //     res.send(response);
     // })
-    document.find((err,response) =>{
+    await document.find((err,response) =>{
         console.log(response);
         res.render('display',{
             doc_list: response
