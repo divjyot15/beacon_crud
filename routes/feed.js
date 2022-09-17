@@ -47,7 +47,7 @@ router.get('/', (req, res) => {
 })
 
 
-router.post('/', async (req, res) => {
+router.post('/', (req, res) => {
     var info = req.body;
     console.log(info);
 
