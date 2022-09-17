@@ -84,16 +84,31 @@ router.get('/users', (req, res) => {
     })
 })
 
-router.get('/view',async (req, res) => {
+// router.get('/view',async (req, res) => {
+//     // document.find((err,response) =>{
+//     //     res.send(response);
+//     // })
+//     await document.find((err,response) =>{
+//         console.log(response);
+//         res.render('display',{
+//             doc_list: response
+//         });
+//     })
+// })
+
+router.get('/view', (req, res) => {
     // document.find((err,response) =>{
     //     res.send(response);
     // })
-    await document.find((err,response) =>{
+     document.find().then((response)=>{
         console.log(response);
         res.render('display',{
             doc_list: response
-        });
-    })
+        })
+     }).catch((err)=>{
+        console.log(err);
+     })
+        
 })
 
 router.post('/fill', (req, res) => {
