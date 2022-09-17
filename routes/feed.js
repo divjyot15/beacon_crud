@@ -6,7 +6,16 @@ const bodyparser = require('body-parser');
 
 const mongoose = require('mongoose');
 const { strict } = require('assert');
-mongoose.connect('mongodb://localhost/beacon')
+const { stringify } = require('querystring');
+
+const db ='mongodb+srv://divjyot15:Gurkirpa5*@cluster0.3nvvrws.mongodb.net/beacon_data?retryWrites=true&w=majority';
+// mongoose.connect('mongodb://localhost/beacon')
+mongoose.connect(db).then(() => {
+    console.log("CONNECTED");
+}).catch((err)=>{
+    console.log("NOT CONNECTED");
+});
+
 
 
 
@@ -22,6 +31,7 @@ var sample_schema = mongoose.Schema({
 });
 
 var document_schema = mongoose.Schema({
+    purpose: String,
     sno: String,
     name_of_company: String,
     consent_number: String,
@@ -95,6 +105,7 @@ router.post('/fill', (req, res) => {
     // }
 
     var new_data = document({
+        purpose : info.purpose,
         sno: info.sno,
         name_of_company: info.noc,
         consent_number: info.cno,
@@ -117,7 +128,7 @@ router.post('/fill', (req, res) => {
     })
 
     new_data.save((err,document) =>{
-        if(err) console.log(error);
+        if(err) console.log(err);
         else{
             res.send("ADDED SUCCESSFULLY")
         }
